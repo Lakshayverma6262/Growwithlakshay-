@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grow With Lakshay - Empower Your Learning Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Pacifico&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      height: 100%;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background-color: #f4f4f4;
+      position: relative;
+    }
+
+    /* Floating Bubbles */
+    .bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+    }
+
+    .bubble:nth-child(1) {
+      width: 40px;
+      height: 40px;
+      left: 10%;
+      animation-duration: 8s;
+    }
+
+    .bubble:nth-child(2) {
+      width: 20px;
+      height: 20px;
+      left: 20%;
+      animation-duration: 5s;
+      animation-delay: 1s;
+    }
+
+    .bubble:nth-child(3) {
+      width: 50px;
+      height: 50px;
+      left: 35%;
+      animation-duration: 7s;
+      animation-delay: 2s;
+    }
+
+    .bubble:nth-child(4) {
+      width: 80px;
+      height: 80px;
+      left: 50%;
+      animation-duration: 11s;
+      animation-delay: 0s;
+    }
+
+    .bubble:nth-child(5) {
+      width: 35px;
+      height: 35px;
+      left: 55%;
+      animation-duration: 6s;
+      animation-delay: 1s;
+    }
+
+    .bubble:nth-child(6) {
+      width: 45px;
+      height: 45px;
+      left: 65%;
+      animation-duration: 8s;
+      animation-delay: 3s;
+    }
+
+    .bubble:nth-child(7) {
+      width: 25px;
+      height: 25px;
+      left: 75%;
+      animation-duration: 7s;
+      animation-delay: 2s;
+    }
+
+    .bubble:nth-child(8) {
+      width: 80px;
+      height: 80px;
+      left: 80%;
+      animation-duration: 12s;
+      animation-delay: 1s;
+    }
+
+    .bubble:nth-child(9) {
+      width: 15px;
+      height: 15px;
+      left: 70%;
+      animation-duration: 5s;
+      animation-delay: 1s;
+    }
+
+    .bubble:nth-child(10) {
+      width: 50px;
+      height: 50px;
+      left: 85%;
+      animation-duration: 10s;
+      animation-delay: 4s;
+    }
+
+    @keyframes rise {
+      0% {
+        bottom: -100px;
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(100px);
+      }
+      100% {
+        bottom: 1080px;
+        transform: translateX(-200px);
+      }
+    }
+
+    /* Header Styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .header.scrolled {
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      color: #333;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      background: linear-gradient(90deg, #ff8a00, #e52e71);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-left: 5px;
+    }
+
+    .logo i {
+      margin-right: 10px;
+      color: #ff8a00;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #ff8a00;
+    }
+
+    .login-btn {
+      background: #4285F4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .login-btn i {
+      font-size: 1.2rem;
+    }
+
+    /* Main Content Styles */
+    .main {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+
+    #homePage {
+      background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&q=80&w=1600') no-repeat center center/cover;
+    }
+
+    #subjectsPage {
+      background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&q=80&w=1600') no-repeat center center/cover;
+    }
+
+    #chaptersPage {
+      background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1497636577773-f1231844b336?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&q=80&w=1600') no-repeat center center/cover;
+    }
+    
+    #coursesPage {
+      background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1497636577773-f1231844b336?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&q=80&w=1600') no-repeat center center/cover;
+    }
+    
+    #teachersPage {
+      background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&q=80&w=1600') no-repeat center center/cover;
+    }
+    
+    #achievementsPage {
+      background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1497636577773-f1231844b336?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&q=80&w=1600') no-repeat center center/cover;
+    }
+    
+    #contactPage {
+      background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&q=80&w=1600') no-repeat center center/cover;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      color: #333;
+      padding: 40px;
+      animation: fadeIn 2s ease-in-out;
+      max-width: 90%;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin: 30px 0;
+      backdrop-filter: blur(5px);
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    .content h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(90deg, #ff8a00, #e52e71);
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: typing 4s steps(12) 1s forwards, blink-caret 0.75s step-end infinite;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 22rem;
+      }
+    }
+
+    @keyframes blink-caret {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    #quote {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #555;
+      font-weight: 300;
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+      animation: fadeIn 3s;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+
+    #quote span {
+      color: #ff8a00;
+      font-family: 'Pacifico', cursive;
+      font-size: 1rem;
+      margin-left: 10px;
+    }
+
+    .content p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      font-weight: 400;
+      color: #444;
+    }
+
+    .custom-select {
+      background: #fff;
+      color: #333;
+      padding: 12px 25px;
+      border-radius: 12px;
+      border: 2px solid #ddd;
+      font-size: 18px;
+      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      appearance: none;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 4 5"><path fill="%23333" d="M2 0L0 2h4z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 12px;
+      margin-top: 20px;
+      cursor: pointer;
+      width: 80%;
+      max-width: 300px;
+      transition: all 0.3s;
+    }
+
+    .custom-select:focus {
+      border-color: #ff8a00;
+      outline: none;
+      box-shadow: 0 0 10px rgba(255, 138, 0, 0.3);
+    }
+
+    /* Search container with background image */
+    .search-container {
+      margin-top: 20px;
+      position: relative;
+      width: 80%;
+      max-width: 500px;
+      background-image: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50px;
+      padding: 5px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 50px;
+      border: 2px solid #ddd;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      transition: all 0.3s;
+    }
+
+    .search-container input:focus {
+      border-color: #ff8a00;
+      outline: none;
+      box-shadow: 0 5px 20px rgba(255, 138, 0, 0.2);
+    }
+
+    .search-container button {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ff8a00;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .search-container button:hover {
+      background: #e52e71;
+    }
+
+    .subjects-list {
+      list-style-type: none;
+      padding: 0;
+      text-align: center;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    .subjects-list li {
+      padding: 25px;
+      margin: 15px;
+      background: linear-gradient(135deg, #fff, #f9f9f9);
+      color: #333;
+      border-radius: 18px;
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+      cursor: pointer;
+      min-width: 200px;
+      font-size: 1.8rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      text-transform: capitalize;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;
+      position: relative;
+      animation: bounceIn 0.6s ease-out;
+      letter-spacing: 1px;
+      border: 2px solid #eee;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .subjects-list li:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(135deg, #fff, #f0f0f0);
+      border-color: #ff8a00;
+    }
+
+    .subjects-list li i {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #ff8a00;
+    }
+
+    .back-btn {
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #ff8a00, #e52e71);
+      color: white;
+      font-size: 1.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease-in-out;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Features Section */
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 50px;
+      padding: 0 20px;
+      max-width: 1200px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      width: 280px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-card i {
+      font-size: 3rem;
+      color: #ff8a00;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .feature-card p {
+      color: #666;
+      font-size: 1rem;
+    }
+
+    /* Page Content Styles */
+    .page-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      width: 100%;
+    }
+    
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .content-card {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+      backdrop-filter: blur(5px);
+    }
+    
+    .content-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+    
+    .content-card h2 {
+      color: #e52e71;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      border-bottom: 2px solid #ff8a00;
+      padding-bottom: 10px;
+    }
+    
+    .content-card h3 {
+      color: #ff8a00;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .teacher-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .teacher-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff8a00, #e52e71);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+    }
+    
+    .achievement-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 20px 0;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+    }
+    
+    .achievement-icon {
+      font-size: 2.5rem;
+      color: #ff8a00;
+    }
+    
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    
+    .form-group label {
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+    }
+    
+    .form-group input, .form-group textarea {
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 2px solid #ddd;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: #ff8a00;
+      outline: none;
+      box-shadow: 0 0 10px rgba(255, 138, 0, 0.3);
+    }
+    
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 40px 0 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 300px;
+      margin-bottom: 30px;
+      padding: 0 20px;
+    }
+
+    .footer h3 {
+      color: #ff8a00;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .footer p, .footer a {
+      color: #bbb;
+      line-height: 1.8;
+      transition: color 0.3s;
+    }
+
+    .footer a {
+      display: block;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+
+    .footer a:hover {
+      color: #ff8a00;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #333;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      background: #ff8a00;
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .header {
+        padding: 12px 20px;
+        flex-wrap: wrap;
+      }
+      
+      .logo {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+      }
+      
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        gap: 15px;
+      }
+      
+      .login-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
+      
+      .content h1 {
+        font-size: 2.5rem;
+        animation: typing 4s steps(12) 1s forwards, blink-caret 0.75s step-end infinite;
+      }
+      
+      @keyframes typing {
+        from { width: 0; }
+        to { width: 15rem; }
+      }
+      
+      .content p {
+        font-size: 1.2rem;
+      }
+      
+      #quote {
+        font-size: 1rem;
+      }
+      
+      .custom-select {
+        font-size: 16px;
+        padding: 8px 15px;
+      }
+      
+      .subjects-list li {
+        font-size: 1.5rem;
+        padding: 20px;
+        min-width: 150px;
+        flex: 1 1 150px;
+      }
+      
+      .back-btn {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+      }
+      
+      .feature-card {
+        width: 100%;
+        max-width: 350px;
+      }
+      
+      .teacher-info {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content h1 {
+        font-size: 2rem;
+      }
+      
+      .subjects-list li {
+        font-size: 1.3rem;
+        margin: 10px;
+        flex: 1 1 120px;
+      }
+      
+      .login-btn span {
+        display: none;
+      }
+      
+      .login-btn i {
+        margin-right: 0;
+      }
+
+      .footer-section {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Floating Bubbles -->
+  <div class="bubbles"></div>
+
+  <!-- Header with Navigation -->
+  <div class="header">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      Grow With <span>Lakshay</span>
+    </div>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('homePage')"><i class="fas fa-home"></i> Home</a>
+      <a href="#" onclick="showPage('coursesPage')"><i class="fas fa-book"></i> Courses</a>
+      <a href="#" onclick="showPage('teachersPage')"><i class="fas fa-chalkboard-teacher"></i> Teachers</a>
+      <a href="#" onclick="showPage('achievementsPage')"><i class="fas fa-award"></i> Achievements</a>
+      <a href="#" onclick="showPage('contactPage')"><i class="fas fa-phone"></i> Contact</a>
+    </div>
+    <button class="login-btn" onclick="googleLogin()">
+      <i class="fab fa-google"></i>
+      <span>Login</span>
+    </button>
+  </div>
+
+  <!-- Home Page -->
+  <div class="main" id="homePage">
+    <div class="content">
+      <h1 class="typing">Grow With Lakshay</h1>
+      <div id="quote"><span>(Motivation Quote)</span> "Success is the sum of small efforts repeated day in and day out."</div>
+      <p>Empower Your Learning Journey</p>
+      
+      <div class="search-container">
+        <input type="text" placeholder="Search for courses, subjects, or chapters...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      
+      <select id="class-select" class="custom-select" onchange="showSubjectsPage()">
+        <option disabled selected>🎓 Select Your Class</option>
+        <option value="9">Class 9</option>
+        <option value="10">Class 10</option>
+        <option value="11">Class 11</option>
+        <option value="12">Class 12</option>
+      </select>
+    </div>
+    
+    <div class="features">
+      <div class="feature-card">
+        <i class="fas fa-video"></i>
+        <h3>Video Lectures</h3>
+        <p>High-quality video lessons from expert educators to help you understand complex topics.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-file-alt"></i>
+        <h3>Study Materials</h3>
+        <p>Comprehensive notes, practice questions, and reference materials for all subjects.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Progress Tracking</h3>
+        <p>Monitor your learning progress and identify areas that need more focus.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-trophy"></i>
+        <h3>Competitions</h3>
+        <p>Participate in quizzes and competitions to test your knowledge and win prizes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subjects Page -->
+  <div class="main" id="subjectsPage" style="display: none;">
+    <div class="content">
+      <h1 id="class-title"></h1>
+      <p>Select a subject to view chapters and learning materials</p>
+      <ul id="subjects-list" class="subjects-list"></ul>
+      <button class="back-btn" onclick="showPage('homePage')"><i class="fas fa-arrow-left"></i> Back to Home</button>
+    </div>
+  </div>
+
+  <!-- Chapters Page -->
+  <div class="main" id="chaptersPage" style="display: none;">
+    <div class="content">
+      <h1 id="subject-title"></h1>
+      <p>Select a chapter to start learning</p>
+      <ul id="chapters-list" class="subjects-list"></ul>
+      <button class="back-btn" onclick="goSubjects()"><i class="fas fa-arrow-left"></i> Back to Subjects</button>
+    </div>
+  </div>
+
+  <!-- Courses Page -->
+  <div class="main" id="coursesPage" style="display: none;">
+    <div class="page-content">
+      <div class="content">
+        <h1>Our Courses</h1>
+        <p>Comprehensive learning programs for all grades</p>
+        
+        <div class="content-grid">
+          <div class="content-card">
+            <h2>Mathematics Mastery</h2>
+            <p>From basic arithmetic to advanced calculus, our mathematics program builds strong foundational skills.</p>
+            <h3>Course Highlights:</h3>
+            <ul>
+              <li>Class 9-12 curriculum coverage</li>
+              <li>500+ practice problems with solutions</li>
+              <li>Weekly live doubt-clearing sessions</li>
+              <li>Competition preparation modules</li>
+            </ul>
+            <button class="back-btn" style="margin-top: 20px;">Enroll Now</button>
+          </div>
+          
+          <div class="content-card">
+            <h2>Science Explorer</h2>
+            <p>Hands-on learning experience covering Physics, Chemistry, and Biology concepts.</p>
+            <h3>Course Highlights:</h3>
+            <ul>
+              <li>Interactive virtual labs</li>
+              <li>3D model visualizations</li>
+              <li>Practical application projects</li>
+              <li>Olympiad preparation track</li>
+            </ul>
+            <button class="back-btn" style="margin-top: 20px;">Enroll Now</button>
+          </div>
+          
+          <div class="content-card">
+            <h2>English Excellence</h2>
+            <p>Develop language skills from grammar basics to advanced literature analysis.</p>
+            <h3>Course Highlights:</h3>
+            <ul>
+              <li>Creative writing workshops</li>
+              <li>Public speaking training</li>
+              <li>Comprehension strategies</li>
+              <li>Vocabulary building exercises</li>
+            </ul>
+            <button class="back-btn" style="margin-top: 20px;">Enroll Now</button>
+          </div>
+        </div>
+        
+        <button class="back-btn" onclick="showPage('homePage')"><i class="fas fa-arrow-left"></i> Back to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teachers Page -->
+  <div class="main" id="teachersPage" style="display: none;">
+    <div class="page-content">
+      <div class="content">
+        <h1>Our Expert Teachers</h1>
+        <p>Learn from the best educators in the industry</p>
+        
+        <div class="content-grid">
+          <div class="content-card">
+            <div class="teacher-info">
+              <div class="teacher-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <h2>Dr. Priya Sharma</h2>
+                <p>PhD in Mathematics, IIT Delhi</p>
+                <p>15+ years teaching experience</p>
+              </div>
+            </div>
+            <p>"My teaching philosophy focuses on building strong conceptual foundations rather than rote learning. I believe every student has a unique learning style that we need to nurture."</p>
+            <p><strong>Specializations:</strong> Calculus, Algebra, Competitive Exam Preparation</p>
+          </div>
+          
+          <div class="content-card">
+            <div class="teacher-info">
+              <div class="teacher-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <h2>Rajesh Kumar</h2>
+                <p>M.Sc Physics, University of Cambridge</p>
+                <p>12 years teaching experience</p>
+              </div>
+            </div>
+            <p>"Physics is not just formulas and equations - it's understanding how the universe works. I make complex concepts accessible through real-world examples and experiments."</p>
+            <p><strong>Specializations:</strong> Quantum Mechanics, Thermodynamics, Astrophysics</p>
+          </div>
+          
+          <div class="content-card">
+            <div class="teacher-info">
+              <div class="teacher-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <h2>Ananya Singh</h2>
+                <p>MA English Literature, Oxford University</p>
+                <p>10 years teaching experience</p>
+              </div>
+            </div>
+            <p>"Language learning should be an enjoyable journey of discovery. I incorporate interactive activities, literature analysis, and creative expression in my teaching methodology."</p>
+            <p><strong>Specializations:</strong> Literary Analysis, Creative Writing, Communication Skills</p>
+          </div>
+        </div>
+        
+        <button class="back-btn" onclick="showPage('homePage')"><i class="fas fa-arrow-left"></i> Back to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Achievements Page -->
+  <div class="main" id="achievementsPage" style="display: none;">
+    <div class="page-content">
+      <div class="content">
+        <h1>Student Achievements</h1>
+        <p>Celebrating excellence in education</p>
+        
+        <div class="content-card">
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fas fa-medal"></i>
+            </div>
+            <div>
+              <h3>National Math Olympiad Winners</h3>
+              <p>5 of our students secured top positions in the National Math Olympiad 2023, with two gold medals and three silver medals.</p>
+            </div>
+          </div>
+          
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div>
+              <h3>Science Fair Champions</h3>
+              <p>Our team won the National Science Fair with their innovative project on sustainable energy solutions.</p>
+            </div>
+          </div>
+          
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div>
+              <h3>Academic Excellence</h3>
+              <p>92% of our students scored above 90% in their board exams, with 15 students achieving perfect scores in Mathematics.</p>
+            </div>
+          </div>
+          
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div>
+              <h3>International Recognition</h3>
+              <p>Two of our students were selected for the International Physics Olympiad, representing our country at the global level.</p>
+            </div>
+          </div>
+        </div>
+        
+        <button class="back-btn" onclick="showPage('homePage')"><i class="fas fa-arrow-left"></i> Back to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Page -->
+  <div class="main" id="contactPage" style="display: none;">
+    <div class="page-content">
+      <div class="content">
+        <h1>Contact Us</h1>
+        <p>Get in touch with our team for any queries</p>
+        
+        <div class="content-grid">
+          <div class="content-card">
+            <h2>Contact Information</h2>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Education Street, Learning City</p>
+            <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> info@growwithlakshay.com</p>
+            <p><i class="fas fa-clock"></i> Monday-Friday: 9AM - 6PM</p>
+            
+            <div class="social-links" style="margin-top: 30px; justify-content: flex-start;">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          
+          <div class="content-card">
+            <h2>Send Us a Message</h2>
+            <form class="contact-form">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email">
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Enter subject">
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Enter your message"></textarea>
+              </div>
+              <button type="submit" class="back-btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+        
+        <button class="back-btn" onclick="showPage('homePage')"><i class="fas fa-arrow-left"></i> Back to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>Grow With Lakshay is an educational platform dedicated to helping students achieve academic excellence through innovative learning methods.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="#" onclick="showPage('homePage')"><i class="fas fa-chevron-right"></i> Home</a>
+        <a href="#" onclick="showPage('coursesPage')"><i class="fas fa-chevron-right"></i> Courses</a>
+        <a href="#" onclick="showPage('teachersPage')"><i class="fas fa-chevron-right"></i> Teachers</a>
+        <a href="#" onclick="showPage('achievementsPage')"><i class="fas fa-chevron-right"></i> Achievements</a>
+        <a href="#" onclick="showPage('contactPage')"><i class="fas fa-chevron-right"></i> Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Education Street, Learning City</p>
+        <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+        <p><i class="fas fa-envelope"></i> info@growwithlakshay.com</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2023 Grow With Lakshay. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    // Create floating bubbles
+    function createBubbles() {
+      const bubblesContainer = document.querySelector('.bubbles');
+      const bubbleCount = 10;
+      
+      for (let i = 0; i < bubbleCount; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        bubblesContainer.appendChild(bubble);
+      }
+    }
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Initialize variables
+    let currentClass = '';
+    let currentSubject = '';
+
+    // Show subjects based on selected class
+    function showSubjectsPage() {
+      currentClass = document.getElementById('class-select').value;
+      document.getElementById('homePage').style.display = 'none';
+      document.getElementById('subjectsPage').style.display = 'flex';
+      document.getElementById('class-title').textContent = `Class ${currentClass}`;
+      const subjectsList = document.getElementById('subjects-list');
+      subjectsList.innerHTML = '';
+
+      let subjects = [];
+
+      if (currentClass == '9') {
+        subjects = [
+          {name: 'Mathematics', icon: 'fas fa-calculator'},
+          {name: 'Science', icon: 'fas fa-flask'},
+          {name: 'English', icon: 'fas fa-book'},
+          {name: 'Social Science', icon: 'fas fa-globe-asia'},
+          {name: 'Hindi', icon: 'fas fa-language'},
+          {name: 'Sanskrit', icon: 'fas fa-om'},
+          {name: 'Physical Education', icon: 'fas fa-running'}
+        ];
+      } else if (currentClass == '10') {
+        subjects = [
+          {name: 'Mathematics', icon: 'fas fa-calculator'},
+          {name: 'Science', icon: 'fas fa-flask'},
+          {name: 'English', icon: 'fas fa-book'},
+          {name: 'Social Science', icon: 'fas fa-globe-asia'},
+          {name: 'Hindi', icon: 'fas fa-language'},
+          {name: 'Sanskrit', icon: 'fas fa-om'},
+          {name: 'Physical Education', icon: 'fas fa-running'}
+        ];
+      } else if (currentClass == '11') {
+        subjects = [
+          {name: 'Mathematics', icon: 'fas fa-calculator'},
+          {name: 'English', icon: 'fas fa-book'},
+          {name: 'Hornbill', icon: 'fas fa-book-open'},
+          {name: 'Hornbill Poem', icon: 'fas fa-pen-fancy'},
+          {name: 'Social Science', icon: 'fas fa-globe-asia'},
+          {name: 'Hindi', icon: 'fas fa-language'},
+          {name: 'Chemistry', icon: 'fas fa-atom'},
+          {name: 'Physics', icon: 'fas fa-rocket'},
+          {name: 'Home Science', icon: 'fas fa-home'}
+        ];
+      } else if (currentClass == '12') {
+        subjects = [
+          {name: 'Mathematics', icon: 'fas fa-calculator'},
+          {name: 'English', icon: 'fas fa-book'},
+          {name: 'Social Science', icon: 'fas fa-globe-asia'},
+          {name: 'Hindi', icon: 'fas fa-language'},
+          {name: 'Chemistry', icon: 'fas fa-atom'},
+          {name: 'Physics', icon: 'fas fa-rocket'},
+          {name: 'Home Science', icon: 'fas fa-home'}
+        ];
+      }
+
+      subjects.forEach(subject => {
+        const li = document.createElement('li');
+        li.innerHTML = `<i class="${subject.icon}"></i>${subject.name}`;
+        li.onclick = function() {
+          showChaptersPage(subject.name);
+        };
+        subjectsList.appendChild(li);
+      });
+    }
+
+    // Show chapters for the selected subject
+    function showChaptersPage(subject) {
+      currentSubject = subject;
+      document.getElementById('subjectsPage').style.display = 'none';
+      document.getElementById('chaptersPage').style.display = 'flex';
+      document.getElementById('subject-title').textContent = currentSubject;
+
+      const chaptersList = document.getElementById('chapters-list');
+      chaptersList.innerHTML = '';
+
+      let chapters = [];
+
+      // Example chapters
+      if (currentSubject === 'Mathematics') {
+        chapters = [
+          {name: 'Algebra Basics', icon: 'fas fa-square-root-alt'},
+          {name: 'Geometry Fundamentals', icon: 'fas fa-shapes'},
+          {name: 'Trigonometry', icon: 'fas fa-calculator'},
+          {name: 'Calculus Introduction', icon: 'fas fa-infinity'},
+          {name: 'Statistics', icon: 'fas fa-chart-bar'}
+        ];
+      } else if (currentSubject === 'Science') {
+        chapters = [
+          {name: 'Physics: Motion', icon: 'fas fa-atom'},
+          {name: 'Chemistry: Reactions', icon: 'fas fa-vial'},
+          {name: 'Biology: Cells', icon: 'fas fa-microscope'},
+          {name: 'Environmental Science', icon: 'fas fa-leaf'}
+        ];
+      } else if (currentSubject === 'English') {
+        chapters = [
+          {name: 'Literature Analysis', icon: 'fas fa-book-reader'},
+          {name: 'Grammar Mastery', icon: 'fas fa-pen'},
+          {name: 'Writing Skills', icon: 'fas fa-edit'},
+          {name: 'Comprehension', icon: 'fas fa-brain'}
+        ];
+      } else if (currentSubject === 'Chemistry') {
+        chapters = [
+          {name: 'Atomic Structure', icon: 'fas fa-atom'},
+          {name: 'Chemical Reactions', icon: 'fas fa-vial'},
+          {name: 'Organic Chemistry', icon: 'fas fa-molecule'},
+          {name: 'Periodic Table', icon: 'fas fa-table'}
+        ];
+      } else {
+        chapters = [
+          {name: 'Chapter 1: Fundamentals', icon: 'fas fa-book-open'},
+          {name: 'Chapter 2: Advanced Concepts', icon: 'fas fa-brain'},
+          {name: 'Chapter 3: Applications', icon: 'fas fa-lightbulb'},
+          {name: 'Chapter 4: Practice Exercises', icon: 'fas fa-pen'}
+        ];
+      }
+      
+      chapters.forEach(chapter => {
+        const li = document.createElement('li');
+        li.innerHTML = `<i class="${chapter.icon}"></i>${chapter.name}`;
+        li.onclick = function() {
+          alert(`Opening chapter: ${chapter.name}`);
+          // In a real implementation, this would open the chapter content
+        };
+        chaptersList.appendChild(li);
+      });
+    }
+
+    // Navigation functions
+    function showPage(pageId) {
+      const pages = ['homePage', 'subjectsPage', 'chaptersPage', 'coursesPage', 'teachersPage', 'achievementsPage', 'contactPage'];
+      pages.forEach(page => {
+        const element = document.getElementById(page);
+        if (element) {
+          element.style.display = page === pageId ? 'flex' : 'none';
+        }
+      });
+      
+      // Special case for coursesPage and teachersPage
+      if (pageId === 'coursesPage' || pageId === 'teachersPage' || pageId === 'achievementsPage' || pageId === 'contactPage') {
+        document.getElementById(pageId).style.display = 'block';
+      }
+    }
+
+    function goHome() {
+      showPage('homePage');
+    }
+
+    function goSubjects() {
+      showPage('subjectsPage');
+    }
+
+    // Google Login Function
+    function googleLogin() {
+      // In a real implementation, this would connect to Firebase or Google Auth
+      alert('Google login would be implemented here. Redirecting to authentication service...');
+      // Simulated login
+      document.querySelector('.login-btn').innerHTML = '<i class="fas fa-user"></i> Account';
+    }
+
+    // Initialize bubbles
+    createBubbles();
+    
+    // Initialize page
+    showPage('homePage');
+  </script>
+
+</body>
+
+</html>
